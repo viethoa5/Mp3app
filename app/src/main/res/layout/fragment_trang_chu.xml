@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    android:fillViewport="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/LinearLayout">
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/fragmentbanner"
+            android:name="com.example.appnhac.Fragment.Fragment_Banner"/>
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/fragmentplaylist"
+            android:name="com.example.appnhac.Fragment.Fragment_Playlist"/>
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/fragmentcategory"
+            android:name="com.example.appnhac.Fragment.Fragment_Category_and_Title"/>
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/fragmentalbumhot"
+            android:name="com.example.appnhac.Fragment.Fragment_Album_Hot"/>
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/fragmentsonghot"
+            android:name="com.example.appnhac.Fragment.Fragment_Song_Hot"/>
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
