@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/imageviewsearchsong"
+        android:scaleType="fitXY"
+        android:layout_margin="3dp">
+    </ImageView>
+    <TextView
+        android:textSize="18sp"
+        android:id="@+id/textviewsearchsongname"
+        android:text="Ten bai hat"
+        android:layout_toRightOf="@id/imageviewsearchsong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:maxWidth="250dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/black">
+    </TextView>
+    <TextView
+        android:textSize="18sp"
+        android:id="@+id/textviewsearchsingername"
+        android:text="Ten ca si"
+        android:layout_toRightOf="@id/imageviewsearchsong"
+        android:layout_below="@id/textviewsearchsongname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:maxWidth="250dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/black">
+    </TextView>
+    <ImageView
+        android:layout_marginRight="10dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/iconlove"
+        android:id="@+id/imageviewsearchlike"/>
+</RelativeLayout>

@@ -7,7 +7,6 @@ import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
@@ -53,15 +52,6 @@ public class PlayMusicActivity extends AppCompatActivity {
         eventclick();
     }
     private void eventclick() {
-        Handler handler = new Handler();
-       // handler.postDelayed(new Runnable() {
-     //       @Override
-     //       public void run() {
-     //          if (playlistSong.fragments.get(1) != null) {
-    //               fragmentDisk.Playnhac(arraysongs.get(0).getHinhBaiHat());
-    //           }
-   //         }
-    //    },300);
       imgplay.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
@@ -142,9 +132,7 @@ public class PlayMusicActivity extends AppCompatActivity {
                       }
                       if (checkrandom == true) {
                           Random random = new Random();
-                          Log.d("BBB",arraysongs.size()+"");
                           int indext = random.nextInt(arraysongs.size());
-                          Log.d("BBB",indext+"");
                           if (indext == postition) {
                               postition = indext - 1;
                           } else {
@@ -188,9 +176,6 @@ public class PlayMusicActivity extends AppCompatActivity {
                             postition = arraysongs.size() - 1;
                         }
                         if (repeat == true) {
-                            if (postition == 0) {
-                                postition = arraysongs.size();
-                            }
                             postition += 1;
                         }
                         if (checkrandom == true) {
@@ -349,6 +334,8 @@ public class PlayMusicActivity extends AppCompatActivity {
                          int indext = random.nextInt(arraysongs.size());
                          if (indext == postition) {
                              postition = indext - 1;
+                         } else {
+                             postition = indext;
                          }
                      }
                      if (postition > arraysongs.size() - 1) {
@@ -375,6 +362,5 @@ public class PlayMusicActivity extends AppCompatActivity {
              }
             }
         },1000);
-
     }
 }

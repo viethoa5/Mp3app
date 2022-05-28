@@ -72,7 +72,7 @@ public class SongListsAdapter extends RecyclerView.Adapter<SongListsAdapter.View
                         @Override
                         public void onResponse(Call<String> call, Response<String> response) {
                             String result = response.body();
-                            if (result.equals("Successfully updated")) {
+                            if (result.equals("Successfully")) {
                                 Toast.makeText(context, "Đã Thích",Toast.LENGTH_SHORT).show();
                             } else {
                                 Toast.makeText(context, "Lỗi!!!",Toast.LENGTH_SHORT).show();

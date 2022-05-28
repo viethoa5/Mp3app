@@ -25,32 +25,27 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SongHotAdapter extends RecyclerView.Adapter<SongHotAdapter.ViewHolder> {
+public class SearchSongAdapter extends RecyclerView.Adapter<SearchSongAdapter.Viewholder>{
     Context context;
     ArrayList<BaiHat> songlists;
-
-    public SongHotAdapter(Context context,ArrayList<BaiHat> songlists) {
+    public SearchSongAdapter(Context context,ArrayList<BaiHat> songlists) {
         this.context = context;
         this.songlists = songlists;
     }
-
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.dong_song_hot,parent,false);
-        return new ViewHolder(view);
+        View view = inflater.inflate(R.layout.dong_search_song,parent,false);
+        return new Viewholder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        BaiHat song = songlists.get(position);
-        if (song == null) {
-            return;
-        }
-        Picasso.with(context).load(song.getHinhBaiHat()).into(holder.imgsong);
-        holder.txtsongname.setText(song.getTenBaiHat());
-        holder.txtsingername.setText(song.getCaSi());
+    public void onBindViewHolder(@NonNull Viewholder holder, int position) {
+        BaiHat baiHat = songlists.get(position);
+        Picasso.with(context).load(baiHat.getHinhBaiHat()).into(holder.imgsong);
+        holder.txtsongname.setText(baiHat.getTenBaiHat());
+        holder.txtsingername.setText(baiHat.getCaSi());
     }
 
     @Override
@@ -58,22 +53,29 @@ public class SongHotAdapter extends RecyclerView.Adapter<SongHotAdapter.ViewHold
         return songlists.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView txtsongname,txtsingername;
+    public class Viewholder extends RecyclerView.ViewHolder {
         ImageView imgsong,imglike;
-
-        public ViewHolder(@NonNull View itemView) {
+        TextView txtsongname,txtsingername;
+        public Viewholder(@NonNull View itemView) {
             super(itemView);
-            txtsongname = itemView.findViewById(R.id.textviewsongtitle);
-            txtsingername = itemView.findViewById(R.id.textviewsingername);
-            imgsong       = itemView.findViewById(R.id.imageviewsonghot);
-            imglike       = itemView.findViewById(R.id.imgaviewlike);
+            imgsong = itemView.findViewById(R.id.imageviewsearchsong);
+            imglike = itemView.findViewById(R.id.imageviewsearchlike);
+            txtsingername = itemView.findViewById(R.id.textviewsearchsingername);
+            txtsongname   = itemView.findViewById(R.id.textviewsearchsongname);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, PlayMusicActivity.class);
+                    intent.putExtra("Song",songlists.get(getLayoutPosition()));
+                    context.startActivity(intent);
+                }
+            });
             imglike.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     imglike.setImageResource(R.drawable.iconloved);
                     DataService dataService = APIService.getService();
-                    Call<String> callback   = dataService.UpdateLike("1",songlists.get(getLayoutPosition()).getIdBaiHat());
+                    Call<String> callback = dataService.UpdateLike("1",songlists.get(getLayoutPosition()).getIdBaiHat());
                     callback.enqueue(new Callback<String>() {
                         @Override
                         public void onResponse(Call<String> call, Response<String> response) {
@@ -91,14 +93,6 @@ public class SongHotAdapter extends RecyclerView.Adapter<SongHotAdapter.ViewHold
                         }
                     });
                     imglike.setEnabled(false);
-                }
-            });
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(context, PlayMusicActivity.class);
-                    intent.putExtra("Song",songlists.get(getLayoutPosition()));
-                    context.startActivity(intent);
                 }
             });
         }

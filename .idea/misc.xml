@@ -20,6 +20,7 @@
         <entry key="..\:/Appnhac/app/src/main/res/layout/dong_list_playlist.xml" value="0.23854166666666668" />
         <entry key="..\:/Appnhac/app/src/main/res/layout/dong_play_song.xml" value="0.23854166666666668" />
         <entry key="..\:/Appnhac/app/src/main/res/layout/dong_playlist.xml" value="0.23854166666666668" />
+        <entry key="..\:/Appnhac/app/src/main/res/layout/dong_search_song.xml" value="0.23854166666666668" />
         <entry key="..\:/Appnhac/app/src/main/res/layout/dong_song_hot.xml" value="0.23854166666666668" />
         <entry key="..\:/Appnhac/app/src/main/res/layout/dong_song_lists.xml" value="0.23854166666666668" />
         <entry key="..\:/Appnhac/app/src/main/res/layout/dong_topic.xml" value="0.23854166666666668" />
@@ -32,6 +33,7 @@
         <entry key="..\:/Appnhac/app/src/main/res/layout/fragment_song.xml" value="0.23854166666666668" />
         <entry key="..\:/Appnhac/app/src/main/res/layout/fragment_tim_kiem.xml" value="0.23854166666666668" />
         <entry key="..\:/Appnhac/app/src/main/res/layout/fragment_trang_chu.xml" value="0.1" />
+        <entry key="..\:/Appnhac/app/src/main/res/menu/search_view.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>
