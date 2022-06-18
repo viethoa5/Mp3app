@@ -25,6 +25,7 @@ import com.example.appnhac.Model.TheLoai;
 import com.example.appnhac.R;
 import com.example.appnhac.Service.APIService;
 import com.example.appnhac.Service.DataService;
+import com.example.appnhac.Service.Service;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.squareup.picasso.Picasso;
@@ -199,9 +200,9 @@ public class ActivitySongList extends AppCompatActivity {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ActivitySongList.this,PlayMusicActivity.class);
+                Intent intent = new Intent(ActivitySongList.this, Service.class);
                 intent.putExtra("Songs",activitysonglists);
-                startActivity(intent);
+                startService(intent);
             }
         });
     }

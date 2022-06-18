@@ -12,11 +12,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.appnhac.Activity.PlayMusicActivity;
 import com.example.appnhac.Model.BaiHat;
 import com.example.appnhac.R;
 import com.example.appnhac.Service.APIService;
 import com.example.appnhac.Service.DataService;
+import com.example.appnhac.Service.Service;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -65,9 +65,9 @@ public class SearchSongAdapter extends RecyclerView.Adapter<SearchSongAdapter.Vi
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(context, PlayMusicActivity.class);
+                    Intent intent = new Intent(context, Service.class);
                     intent.putExtra("Song",songlists.get(getLayoutPosition()));
-                    context.startActivity(intent);
+                    context.startService(intent);
                 }
             });
             imglike.setOnClickListener(new View.OnClickListener() {
